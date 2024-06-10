@@ -4,6 +4,125 @@
 @prefix fint: <http://www.openlinksw.com/ontology/fint#> .
 
 <#AccountMapping>
-    a rr:TriplesMap ; rr:logicalTable [ rr:tableSchema "demo" ; rr:tableOwner "fint" ; rr:tableName "account" ] ;
-    rr:subjectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com/fint/Account/{AccountNumber}#this" ;rr:class fint:Account ; rr:graph <http://demo.openlinksw.com/fint#>] ;
-rr:predicateObjectMap [ rr:predicateMap [ rr:constant rdfs:label ] ; rr:objectMap [ rr:column "AccountNumber" ] ; ].
+    a rr:TriplesMap ;
+    rr:logicalTable [ rr:tableSchema "demo" ; rr:tableOwner "fint" ; rr:tableName "account" ] ;
+    rr:subjectMap [
+        rr:termType rr:IRI ;
+        rr:template "http://demo.openlinksw.com/fint/Account/{AccountNumber}#this" ;
+        rr:class fint:Account ;
+        rr:graph <http://demo.openlinksw.com/fint#>
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant rdfs:label ] ;
+        rr:objectMap [ rr:column "AccountNumber" ; rr:datatype xsd:string ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:balance ] ;
+        rr:objectMap [ rr:column "Balance" ; rr:datatype xsd:decimal ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:accountType ] ;
+        rr:objectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com/fint/{AccountType}Account" ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:linkedCustomer ] ;
+        rr:objectMap [ rr:template "http://demo.openlinksw.com/fint/Customer/{LinkedCustomerID}#this" ] ;
+    ] .
+
+<#CustomerMapping>
+    a rr:TriplesMap ;
+    rr:logicalTable [ rr:tableSchema "demo" ; rr:tableOwner "fint" ; rr:tableName "customer" ] ;
+    rr:subjectMap [
+        rr:termType rr:IRI ;
+        rr:template "http://demo.openlinksw.com/fint/Customer/{CustomerID}#this" ;
+        rr:class fint:Customer ;
+        rr:graph <http://demo.openlinksw.com/fint#>
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant rdfs:label ] ;
+        rr:objectMap [ rr:column "CustomerID" ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:name ] ;
+        rr:objectMap [ rr:column "Name" ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:streetAddress ] ;
+        rr:objectMap [ rr:column "StreetAddress" ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:city ] ;
+        rr:objectMap [ rr:column "City" ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:state ] ;
+        rr:objectMap [ rr:column "State" ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:zipCode ] ;
+        rr:objectMap [ rr:column "ZipCode" ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:account ] ;
+        rr:objectMap [ rr:template "http://demo.openlinksw.com/fint/Account/{AccountNumber}#this" ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:riskScore ] ;
+        rr:objectMap [ rr:column "RiskScore" ; rr:datatype xsd:decimal ] ;
+    ] .
+
+<#TransactionMapping>
+    a rr:TriplesMap ;
+    rr:logicalTable [ rr:tableSchema "demo" ; rr:tableOwner "fint" ; rr:tableName "transaction" ] ;
+    rr:subjectMap [
+        rr:termType rr:IRI ;
+        rr:template "http://demo.openlinksw.com/fint/Transaction/{TransactionID}#this" ;
+        rr:class fint:Transaction ;
+        rr:graph <http://demo.openlinksw.com/fint#>
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant rdfs:label ] ;
+        rr:objectMap [ rr:column "TransactionID" ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:timestamp ] ;
+        rr:objectMap [ rr:column "Timestamp" ; rr:datatype xsd:dateTime ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:amount ] ;
+        rr:objectMap [ rr:column "Amount" ; rr:datatype xsd:decimal ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:senderAccount ] ;
+        rr:objectMap [ rr:template "http://demo.openlinksw.com/fint/Account/{SenderAccount}#this" ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:receiverAccount ] ;
+        rr:objectMap [ rr:template "http://demo.openlinksw.com/fint/Account/{ReceiverAccount}#this" ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:transactionType ] ;
+        rr:objectMap [ rr:column "TransactionType" ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:status ] ;
+        rr:objectMap [ rr:column "Status" ] ;
+    ] .
+
+<#FraudLabelMapping>
+    a rr:TriplesMap ;
+    rr:logicalTable [ rr:tableSchema "demo" ; rr:tableOwner "fint" ; rr:tableName "fraud_label" ] ;
+    rr:subjectMap [
+        rr:termType rr:IRI ;
+        rr:template "http://demo.openlinksw.com/fint/FraudLabel/{TransactionID}#this" ;
+        rr:class fint:FraudLabel ;
+        rr:graph <http://demo.openlinksw.com/fint#>
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:isFraud ] ;
+        rr:objectMap [ rr:column "IsFraud" ; rr:datatype xsd:boolean ] ;
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicateMap [ rr:constant fint:relatedTransaction ] ;
+        rr:objectMap [ rr:template "http://demo.openlinksw.com/fint/Transaction/{TransactionID}#this" ] ;
+    ] .

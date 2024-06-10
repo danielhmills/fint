@@ -38,7 +38,7 @@ def generate_customer_data(num_records):
         account_number = fake.iban()
         risk_score = round(random.uniform(0.0, 1.0), 2)
         customers.append([customer_id, name, street_address, city, state, zip_code, account_number, risk_score])
-    return pd.DataFrame(customers, columns=['CustomerID', 'Name', 'StreetAddress', 'City', 'State', 'ZipCode', 'AccountNumber', 'RiskScore'])
+    return pd.DataFrame(customers, columns=['CustomerID', 'Name', 'StreetAddress', 'City', 'State', 'ZipCode', 'FintAccountNumber', 'RiskScore'])
 
 # Function to generate synthetic account data
 def generate_account_data(num_records):
@@ -49,7 +49,7 @@ def generate_account_data(num_records):
         account_type = random.choice(['Savings', 'Checking', 'Business'])
         linked_customer_id = fake.uuid4()
         accounts.append([account_number, balance, account_type, linked_customer_id])
-    return pd.DataFrame(accounts, columns=['AccountNumber', 'Balance', 'AccountType', 'LinkedCustomerID'])
+    return pd.DataFrame(accounts, columns=['FintAccountNumber', 'Balance', 'AccountType', 'LinkedCustomerID'])
 
 # Function to generate synthetic fraud label data
 def generate_fraud_label_data(num_records):
