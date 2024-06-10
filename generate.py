@@ -10,18 +10,40 @@ fake = Faker()
 num_records = 1000
 num_files = 20
 
+# Generate fixed sets of accounts for more controlled cycles and flows
+fixed_accounts = [fake.iban() for _ in range(100)]
+
 # Function to generate synthetic transaction data
 def generate_transaction_data(num_records):
     transactions = []
-    for _ in range(num_records):
+    
+    # Generate a proportion of transactions to form cycles and circular flows
+    for _ in range(int(num_records * 0.1)):
+        account1, account2, account3 = random.sample(fixed_accounts, 3)
+        transactions.append([
+            fake.uuid4(), fake.date_time_this_year(), round(random.uniform(10.0, 10000.0), 2),
+            account1, account2, 'Credit', 'Completed'
+        ])
+        transactions.append([
+            fake.uuid4(), fake.date_time_this_year(), round(random.uniform(10.0, 10000.0), 2),
+            account2, account3, 'Credit', 'Completed'
+        ])
+        transactions.append([
+            fake.uuid4(), fake.date_time_this_year(), round(random.uniform(10.0, 10000.0), 2),
+            account3, account1, 'Credit', 'Completed'
+        ])
+    
+    # Generate remaining random transactions
+    for _ in range(int(num_records * 0.9)):
         transaction_id = fake.uuid4()
         timestamp = fake.date_time_this_year()
         amount = round(random.uniform(10.0, 10000.0), 2)
-        sender_account = fake.iban()
-        receiver_account = fake.iban()
+        sender_account = random.choice(fixed_accounts)
+        receiver_account = random.choice(fixed_accounts)
         transaction_type = random.choice(['Credit', 'Debit'])
         status = random.choice(['Completed', 'Pending', 'Failed'])
         transactions.append([transaction_id, timestamp, amount, sender_account, receiver_account, transaction_type, status])
+    
     return pd.DataFrame(transactions, columns=['TransactionID', 'Timestamp', 'Amount', 'SenderAccount', 'ReceiverAccount', 'TransactionType', 'Status'])
 
 # Function to generate synthetic customer data
@@ -30,12 +52,11 @@ def generate_customer_data(num_records):
     for _ in range(num_records):
         customer_id = fake.uuid4()
         name = fake.name()
-        address = fake.address()
         street_address = fake.street_address()
         city = fake.city()
         state = fake.state()
         zip_code = fake.zipcode()
-        account_number = fake.iban()
+        account_number = random.choice(fixed_accounts)
         risk_score = round(random.uniform(0.0, 1.0), 2)
         customers.append([customer_id, name, street_address, city, state, zip_code, account_number, risk_score])
     return pd.DataFrame(customers, columns=['CustomerID', 'Name', 'StreetAddress', 'City', 'State', 'ZipCode', 'FintAccountNumber', 'RiskScore'])
@@ -43,8 +64,7 @@ def generate_customer_data(num_records):
 # Function to generate synthetic account data
 def generate_account_data(num_records):
     accounts = []
-    for _ in range(num_records):
-        account_number = fake.iban()
+    for account_number in fixed_accounts:
         balance = round(random.uniform(100.0, 1000000.0), 2)
         account_type = random.choice(['Savings', 'Checking', 'Business'])
         linked_customer_id = fake.uuid4()
