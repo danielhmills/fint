@@ -1,0 +1,156 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fint: <http://demo.openlinksw.com/fint/> .
+
+<http://demo.openlinksw.com/fint/>
+    a owl:Ontology ;
+    rdfs:label "Financial Transactions Ontology" ;
+    rdfs:comment "An ontology for modeling financial transactions, accounts, customers, and fraud detection." .
+
+fint:Account
+    a owl:Class ;
+    rdfs:label "Account" ;
+    rdfs:comment "Represents a financial account." .
+
+fint:Customer
+    a owl:Class ;
+    rdfs:label "Customer" ;
+    rdfs:comment "Represents a customer in the financial system." .
+
+fint:Transaction
+    a owl:Class ;
+    rdfs:label "Transaction" ;
+    rdfs:comment "Represents a financial transaction." .
+
+fint:FraudLabel
+    a owl:Class ;
+    rdfs:label "Fraud Label" ;
+    rdfs:comment "Represents a label indicating whether a transaction is fraudulent." .
+
+fint:balance
+    a owl:DatatypeProperty ;
+    rdfs:domain fint:Account ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "balance" ;
+    rdfs:comment "The balance of the account." .
+
+fint:accountType
+    a owl:DatatypeProperty ;
+    rdfs:domain fint:Account ;
+    rdfs:range xsd:string ;
+    rdfs:label "accountType" ;
+    rdfs:comment "The type of the account." .
+
+fint:linkedCustomer
+    a owl:ObjectProperty ;
+    rdfs:domain fint:Account ;
+    rdfs:range fint:Customer ;
+    rdfs:label "linkedCustomer" ;
+    rdfs:comment "The customer linked to the account." .
+
+fint:name
+    a owl:DatatypeProperty ;
+    rdfs:domain fint:Customer ;
+    rdfs:range xsd:string ;
+    rdfs:label "name" ;
+    rdfs:comment "The name of the customer." .
+
+fint:streetAddress
+    a owl:DatatypeProperty ;
+    rdfs:domain fint:Customer ;
+    rdfs:range xsd:string ;
+    rdfs:label "streetAddress" ;
+    rdfs:comment "The street address of the customer." .
+
+fint:city
+    a owl:DatatypeProperty ;
+    rdfs:domain fint:Customer ;
+    rdfs:range xsd:string ;
+    rdfs:label "city" ;
+    rdfs:comment "The city of the customer." .
+
+fint:state
+    a owl:DatatypeProperty ;
+    rdfs:domain fint:Customer ;
+    rdfs:range xsd:string ;
+    rdfs:label "state" ;
+    rdfs:comment "The state of the customer." .
+
+fint:zipCode
+    a owl:DatatypeProperty ;
+    rdfs:domain fint:Customer ;
+    rdfs:range xsd:string ;
+    rdfs:label "zipCode" ;
+    rdfs:comment "The zip code of the customer." .
+
+fint:account
+    a owl:ObjectProperty ;
+    rdfs:domain fint:Customer ;
+    rdfs:range fint:Account ;
+    rdfs:label "account" ;
+    rdfs:comment "The account associated with the customer." .
+
+fint:riskScore
+    a owl:DatatypeProperty ;
+    rdfs:domain fint:Customer ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "riskScore" ;
+    rdfs:comment "The risk score of the customer." .
+
+fint:timestamp
+    a owl:DatatypeProperty ;
+    rdfs:domain fint:Transaction ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "timestamp" ;
+    rdfs:comment "The timestamp of the transaction." .
+
+fint:amount
+    a owl:DatatypeProperty ;
+    rdfs:domain fint:Transaction ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "amount" ;
+    rdfs:comment "The amount of the transaction." .
+
+fint:senderAccount
+    a owl:ObjectProperty ;
+    rdfs:domain fint:Transaction ;
+    rdfs:range fint:Account ;
+    rdfs:label "senderAccount" ;
+    rdfs:comment "The sender account of the transaction." .
+
+fint:receiverAccount
+    a owl:ObjectProperty ;
+    rdfs:domain fint:Transaction ;
+    rdfs:range fint:Account ;
+    rdfs:label "receiverAccount" ;
+    rdfs:comment "The receiver account of the transaction." .
+
+fint:transactionType
+    a owl:DatatypeProperty ;
+    rdfs:domain fint:Transaction ;
+    rdfs:range xsd:string ;
+    rdfs:label "transactionType" ;
+    rdfs:comment "The type of the transaction." .
+
+fint:status
+    a owl:DatatypeProperty ;
+    rdfs:domain fint:Transaction ;
+    rdfs:range xsd:string ;
+    rdfs:label "status" ;
+    rdfs:comment "The status of the transaction." .
+
+fint:isFraud
+    a owl:DatatypeProperty ;
+    rdfs:domain fint:FraudLabel ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "isFraud" ;
+    rdfs:comment "Indicates whether the transaction is fraudulent." .
+
+fint:relatedTransaction
+    a owl:ObjectProperty ;
+    rdfs:domain fint:FraudLabel ;
+    rdfs:range fint:Transaction ;
+    rdfs:label "relatedTransaction" ;
+    rdfs:comment "The transaction related to the fraud label." .

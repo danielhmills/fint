@@ -1,0 +1,9 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fint: <http://www.openlinksw.com/ontology/fint#> .
+
+<#AccountMapping>
+    a rr:TriplesMap ; rr:logicalTable [ rr:tableSchema "demo" ; rr:tableOwner "fint" ; rr:tableName "account" ] ;
+    rr:subjectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com/fint/Account/{AccountNumber}#this" ;rr:class fint:Account ; rr:graph <http://demo.openlinksw.com/fint#>] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant rdfs:label ] ; rr:objectMap [ rr:column "AccountNumber" ] ; ].
