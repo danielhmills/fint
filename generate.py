@@ -93,6 +93,10 @@ for i in range(1, num_files + 1):
     transactions_df = generate_transaction_data(num_records)
     customers_df = generate_customer_data(num_records)
     accounts_df = generate_account_data(fixed_accounts)
+    
+    # Ensure unique accounts by removing duplicates if any
+    accounts_df.drop_duplicates(subset=['FintAccountNumber'], keep='first', inplace=True)
+    
     fraud_labels_df = generate_fraud_label_data(num_records)
 
     transactions_df.to_csv(f'synthetic_data/transactions/{i}.csv', index=False)
