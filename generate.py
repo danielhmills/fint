@@ -61,11 +61,13 @@ def generate_customer_data(num_records):
         customers.append([customer_id, name, street_address, city, state, zip_code, account_number, risk_score])
     return pd.DataFrame(customers, columns=['CustomerID', 'Name', 'StreetAddress', 'City', 'State', 'ZipCode', 'FintAccountNumber', 'RiskScore'])
 
-# Function to generate synthetic account data
-def generate_account_data(num_records, account_type):
+# Function to generate synthetic account data with unique types
+def generate_account_data(fixed_accounts):
+    account_types = ['Savings', 'Checking', 'Business']
     accounts = []
-    for account_number in fixed_accounts:
+    for i, account_number in enumerate(fixed_accounts):
         balance = round(random.uniform(100.0, 1000000.0), 2)
+        account_type = account_types[i % len(account_types)]  # Ensure each account has one of the types
         linked_customer_id = fake.uuid4()
         accounts.append([account_number, balance, account_type, linked_customer_id])
     return pd.DataFrame(accounts, columns=['FintAccountNumber', 'Balance', 'AccountType', 'LinkedCustomerID'])
@@ -90,15 +92,7 @@ os.makedirs('synthetic_data/transactions', exist_ok=True)
 for i in range(1, num_files + 1):
     transactions_df = generate_transaction_data(num_records)
     customers_df = generate_customer_data(num_records)
-
-    # Generate accounts of each type separately
-    accounts_savings_df = generate_account_data(num_records // 3, 'Savings')
-    accounts_checking_df = generate_account_data(num_records // 3, 'Checking')
-    accounts_business_df = generate_account_data(num_records // 3, 'Business')
-    
-    # Combine all account types into one DataFrame
-    accounts_df = pd.concat([accounts_savings_df, accounts_checking_df, accounts_business_df])
-    
+    accounts_df = generate_account_data(fixed_accounts)
     fraud_labels_df = generate_fraud_label_data(num_records)
 
     transactions_df.to_csv(f'synthetic_data/transactions/{i}.csv', index=False)
