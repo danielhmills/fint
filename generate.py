@@ -6,7 +6,6 @@ import os
 fake = Faker()
 
 # Define the number of records for each CSV file
-num_records = 1000
 num_files = 20
 
 # Generate fixed sets of accounts with primary and secondary account holders
@@ -30,18 +29,21 @@ def generate_transaction_data(num_records):
     return pd.DataFrame(transactions, columns=['TransactionID', 'Timestamp', 'Amount', 'SenderAccount', 'ReceiverAccount', 'TransactionType', 'Status'])
 
 # Function to generate synthetic customer data
-def generate_customer_data():
+def generate_customer_data(num_records):
     customers = []
-    for details in fixed_accounts.values():
-        for customer_id in [details['primary_holder_id'], details['secondary_holder_id']]:
-            if customer_id:
-                name = fake.name()
-                street_address = fake.street_address()
-                city = fake.city()
-                state = fake.state()
-                zip_code = fake.zipcode()
-                risk_score = round(random.uniform(0.0, 1.0), 2)
-                customers.append([customer_id, name, street_address, city, state, zip_code, risk_score])
+    used_ids = set()  # Track used customer IDs to ensure uniqueness
+    for _ in range(num_records):
+        customer_id = fake.uuid4()
+        while customer_id in used_ids:
+            customer_id = fake.uuid4()
+        used_ids.add(customer_id)
+        name = fake.name()
+        street_address = fake.street_address()
+        city = fake.city()
+        state = fake.state()
+        zip_code = fake.zipcode()
+        risk_score = round(random.uniform(0.0, 1.0), 2)
+        customers.append([customer_id, name, street_address, city, state, zip_code, risk_score])
     return pd.DataFrame(customers, columns=['CustomerID', 'Name', 'StreetAddress', 'City', 'State', 'ZipCode', 'RiskScore'])
 
 # Function to generate synthetic account data
@@ -57,7 +59,7 @@ def generate_account_data():
 def generate_fraud_label_data(num_records):
     fraud_labels = []
     for _ in range(num_records):
-        transaction_id = random.choice(transactions_df['TransactionID'].tolist())
+        transaction_id = fake.uuid4()
         is_fraud = random.choice([True, False])
         fraud_labels.append([transaction_id, is_fraud])
     return pd.DataFrame(fraud_labels, columns=['TransactionID', 'IsFraud'])
@@ -71,8 +73,9 @@ os.makedirs('synthetic_data/transactions', exist_ok=True)
 
 # Generate and save the synthetic data to CSV files
 for i in range(1, num_files + 1):
+    num_records = 1000  # define the number of records to generate for each file
     accounts_df = generate_account_data()
-    customers_df = generate_customer_data()
+    customers_df = generate_customer_data(num_records)
     transactions_df = generate_transaction_data(num_records)
     fraud_labels_df = generate_fraud_label_data(num_records)
 
