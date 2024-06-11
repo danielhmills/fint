@@ -85,4 +85,7 @@ for i in range(1, num_files + 1):
     transactions_df = generate_transaction_data(num_transactions_per_file, account_numbers)
     fraud_labels_df = generate_fraud_label_data(num_transactions_per_file)
 
-    transactions_df.to_csv
+    transactions_df.to_csv(f'synthetic_data/transactions/{i}.csv', index=False)
+    fraud_labels_df.to_csv(f'synthetic_data/fraud_labels/{i}.csv', index=False)
+
+print(f"Generated {num_files} sets of synthetic data CSV files.")
