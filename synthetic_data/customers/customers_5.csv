@@ -1,0 +1,101 @@
+CustomerID,Name,StreetAddress,City,State,ZipCode,RiskScore
+aa2702ea-260e-4aed-8d4c-5ce830f6981a,Michael Thomas,20068 Johnny Estates,Carlosmouth,Florida,48055,0.35
+7b7f2c7f-e5a3-4115-ae83-a74f8c8c359d,Larry Lopez,66412 Williams Cape,Lake Jill,New Mexico,79567,0.53
+72b6358c-bce3-4247-8719-39e990297917,Mark Farley,093 Underwood Grove Suite 824,Troymouth,Texas,31788,0.95
+47c01b3c-b6af-4dee-8785-978bab4ecdd7,David Oneal,924 Anne Villages,Natalieport,Pennsylvania,05682,0.47
+18b086d5-770b-45c2-8e65-78458735b179,Autumn Callahan,459 Janet Wells Suite 840,South Kevinville,West Virginia,55219,0.82
+65db7d4a-2d9a-48d3-b6d8-5dc1a1cfbd2f,Crystal Grant,924 Perkins Green Apt. 130,Javierside,Nevada,85018,0.54
+664f089f-ccb2-4ef7-8e18-0c539271fa01,Marcus Williams,54059 Coleman Station,Sarahhaven,California,99724,0.23
+9e746fb8-c73e-45f4-ab8d-d1cbb0236d2a,Victoria Sullivan,526 Shirley Ford Apt. 674,Johnstonville,Georgia,11449,0.79
+4890f8e1-b12e-492e-b6c0-befd7d988f55,Stacey Chen,23362 Proctor Harbors Apt. 634,Williamview,Wyoming,29722,0.23
+7e2070ca-3a01-4627-afcd-28c50b0e2515,James Mcgee,9126 Joseph Stravenue,Patrickberg,Virginia,94836,0.66
+3e7104b9-612a-431b-abba-fda5f994a966,Suzanne Graham,85908 William Orchard Apt. 571,Jennifermouth,Vermont,84657,0.16
+c998261d-3f79-48c1-8bd6-e27ccd57883e,Randy Burke,956 Jason Plaza,Josephland,Virginia,29244,0.71
+d556295d-ae89-4ea3-b6eb-62884a4f246d,Melissa Hensley,273 Simon Grove Suite 332,South Kristinamouth,Florida,60423,0.18
+961f31b6-1015-47ff-b9bc-1ebe0d266690,Brian Allen,758 Walker Manor,South Cindyshire,Georgia,97824,0.46
+4a4c27f2-3928-4f41-bc0d-8b542b3b72c8,Kathryn Hudson,90196 Owen Glens,Bowmanstad,West Virginia,86699,0.79
+388a0e74-8e17-4b77-ac6c-45e4c93d342e,Judith English,7352 Julia Mountain,West Adamchester,Arizona,21262,0.05
+7842cb46-81cb-4e03-aa80-c5dd7605e965,Christina Curry,2476 Ryan Expressway,Jonathanbury,West Virginia,66458,0.47
+55d71300-d7b0-4648-8628-d15d1a7c6a4e,Edward Kelly,866 Taylor Pine,Marissaburgh,Rhode Island,57796,0.95
+ec020714-d9f9-4aaa-89c1-7131d91f3584,Lisa Mccormick,54533 Valdez Valleys Apt. 941,Timothyburgh,Mississippi,53489,0.35
+fa8a1687-2cf0-4d44-960f-12f39241cbb4,Richard Humphrey,324 Williams Locks Suite 107,East Nicholastown,Georgia,46047,0.18
+5fc51dbd-89b6-4d14-a2a3-af03733a6782,Sharon Aguirre,513 Justin Shoal,Kathymouth,Wisconsin,09349,0.6
+ac05bec4-86f2-4d5d-82e7-b10f954a1cb1,Joshua Moon,04713 Haynes Manor Apt. 039,Williamside,Rhode Island,13140,0.42
+9453225c-a820-4a77-8270-11be349f38f9,Stephen Phillips,0071 Brittney Radial Apt. 432,Robertchester,Louisiana,07621,0.15
+a491c5c0-464e-4dc6-b994-814343cfde07,Sara Vaughan,940 King Springs,Kimberlyshire,Arizona,30377,0.51
+0cd0f069-3474-4f2e-8ae1-c72c736dc1f0,Jessica Rivera,9404 Jasmine Springs,South Kristina,Iowa,78963,0.05
+66123869-8e72-496f-b90b-a3fc05601aeb,David Blair,5588 Thomas Stravenue Suite 274,Jamesbury,Vermont,21423,0.89
+c9db5bd8-a1d9-4886-86ef-95d5dc3fae3a,Robin Pollard,620 Walker Brooks,New Peter,Nebraska,66694,0.73
+2e53a9a6-f003-4735-9ff3-f61a71f9bb5f,Samantha Carter,995 Hughes Shoals Apt. 096,Port Candice,Iowa,11607,0.84
+6132b237-e801-44c5-9742-c6481565f2d1,Jonathan Miles,87142 Laura Common,Lisaberg,South Dakota,74744,0.15
+98f88a33-35a5-405d-8ca1-72282dedcb2e,Kevin Berry,3097 Pope Cove Suite 722,Johnsonport,New York,31314,0.39
+b66ce360-ba56-44c1-bb31-0ded22705b7c,Alexis Thomas,1661 Cheryl Isle,East James,Tennessee,74255,0.08
+702565c1-d884-42f6-aa9d-f5d44cd6d49a,Amanda Hurst,1317 Robert Flats Suite 499,Johnsonton,Tennessee,77489,0.47
+bc7f508f-c61f-4d10-8770-58b124359859,Nancy Hardy,977 Gary Terrace,Mirandaview,Louisiana,27012,0.12
+a0e1c0a5-a8cd-41b5-98b2-13ad9b833a66,Lauren Clark,917 Mcknight Mountains Suite 132,Jacksonside,Oregon,30247,1.0
+ef010773-4479-4929-8264-e61463749084,Deborah Smith,17301 Wayne Brooks,South Georgeland,Montana,83348,0.17
+4c5bfc99-944b-4490-9a13-1a3f55ff8f2c,Rose Burns,4877 Jenkins Causeway Apt. 682,Lake Jasonborough,Idaho,23521,0.91
+ccc40b71-e0ae-4f52-a44d-c0a903270e9f,Michael Hughes,4396 Sandoval Plains,Lake Bryan,Oregon,99694,0.65
+fdc3b18b-e641-486a-b131-441be314392d,Melissa Hernandez,23158 Garcia Shore,East Hollybury,North Carolina,54757,0.89
+6c125fc1-5bfa-4943-83e9-316553be6cfb,Matthew Anderson,676 Stephanie Camp,Andrewview,Tennessee,10676,0.39
+f0c78ac2-1541-473e-811e-07c0ac5f6f61,Karen Douglas,8826 Michael Union Apt. 793,Angelafort,Michigan,76591,0.58
+219aa101-3b79-499e-82ce-35f98c8b2c0a,Stephanie Price,714 Krueger Field Suite 952,Port Carl,Vermont,57500,0.64
+e35ddfc3-f87b-4617-a02f-e896c715dcf7,Mr. Daniel Thomas DDS,79975 Campbell Gateway,Carmenchester,Maryland,76343,0.56
+b273655d-33a3-49d8-a7f5-c051dcc6975e,Aaron Williams,0840 Fox Road Apt. 661,North Jeanmouth,New Mexico,73956,0.31
+3fe953c7-1645-4352-9f58-ed8ae6861f42,Cynthia Wade,942 Mccormick Lake Suite 051,Lake Linda,Alabama,56938,0.8
+4c2dec5d-6f04-4bd1-853a-c3ae46c9bba2,Michael Stevenson,870 David Extension,South Denisechester,Hawaii,19339,0.92
+94ef77ec-4a29-4c16-a3b1-ee2aefa58312,Ashley Taylor,12373 Gregory Freeway Suite 744,Mullenmouth,Kansas,06893,0.24
+2ac91e46-243c-46ff-8659-f9708473c731,Michael Hernandez,31870 Laura Point Suite 422,Fernandezmouth,Nevada,37243,0.9
+ca954071-8294-4041-b0e6-0ea287e37cc1,Steven Smith,69583 Melody Trace,Richardside,Mississippi,58993,0.22
+7d28e56c-f1a0-47d3-bb32-4b85dd3c67fc,Tracy Thomas,20659 Arellano Prairie Apt. 615,Cohenbury,Alaska,61784,0.17
+975ccd30-9c5b-42e2-991b-87d029f7666c,Tracy Mills,435 Samantha Pike,North Donnaville,Alabama,42183,0.44
+d47bb783-7574-4a0f-9cee-eee3b72e0aa6,Jill Perkins,7266 Gardner Groves,West Alyssaview,Vermont,02701,0.53
+fb24c0be-7f43-4e02-851a-14237e5bb2a8,Nicholas Andrews,988 Russell Valley,Gloriaview,Florida,50194,0.25
+42fa1a9c-3cbd-4a7d-85c0-062b798a6ed8,Gary Jones,37359 Sawyer Mall Suite 848,Turnerland,New Mexico,84373,0.22
+449f399f-d5c6-4cb8-b3ab-376ac360a767,David Calhoun,94776 Todd Cliffs,Wangville,Iowa,82546,0.56
+f0197155-454a-47e7-9b12-9c41e7a9cc13,Christina Price,71396 Jean Station,North Nathanmouth,Oklahoma,97485,0.66
+6e0e66d8-d309-4420-afb7-88f6e21e16ac,Jacob Johnson,3761 Trujillo Square,Port Jasonville,Kansas,19017,0.21
+6c9ada67-eb85-4986-934e-9a56cd1e083e,Elizabeth Mclaughlin,7454 Alan Ports Apt. 205,Johnsonfort,Vermont,15690,0.65
+6a0ea3df-2fa7-4791-b8a3-9e414e8d44d7,Hannah Wood,654 David Isle,Virginiaside,Nebraska,85504,0.52
+afca019c-c631-4eec-bcad-4c8a9f7a7e2d,Kelly Patel,2757 Gray Parkway,Port Dwayne,Florida,53467,0.31
+9e1ae9ab-6350-4e74-8705-976a160368c1,James Carlson,03589 Morgan Extensions,Johnland,Oklahoma,06354,0.25
+27b2cde9-87fb-4244-a406-1eb2138298b1,Craig Anderson,012 Amy Cliffs Suite 717,West Kristy,Ohio,88532,0.07
+062220b0-ed15-4a61-8cdf-05897b3168c9,Lauren Colon,257 Tommy Way Apt. 061,Lake Travisburgh,Alaska,15950,0.96
+7d3b8948-069f-4e45-b8ef-4b39ad8892aa,Tammy Ferrell MD,8711 Long Loaf Suite 278,Waltersland,Iowa,59679,0.17
+b7ced1e4-0940-415c-9d05-2a559084335e,Robert Bennett,25985 Walker Tunnel Suite 585,Port Michellefurt,Oklahoma,92610,0.26
+a352825c-4280-45f5-b054-23af5931078c,Ellen Thompson,704 Gerald Springs,East Rogerfort,Illinois,43312,0.58
+9a1387af-3ebf-44c2-a360-edf46e49d88d,Jessica Clark,418 Joseph Mount,New Emilyborough,Nebraska,75339,0.96
+2b341f7f-070f-4183-a5a4-6d408c25edb2,Arthur Cunningham,8737 Jasmin Terrace,North Williamburgh,South Carolina,96502,0.07
+609b7d3c-87b0-4e3a-919f-00f46cd3daff,Victoria Wright,736 Melissa Streets,New Hunter,Arkansas,24499,0.84
+c70a1d41-5ada-4c11-82f0-114c9a4e5ad8,Sarah Dunlap,83118 Lee Brooks Apt. 609,New Michael,Illinois,34081,0.45
+739e6423-7e55-49f9-b03f-005397e6e536,Madison Dillon,87877 Melissa Viaduct Suite 768,Port Ashley,Maine,13407,0.77
+eca2897a-9819-4bd3-b70c-247a1c7d43c5,Christine Santiago,2033 Janet Groves,Kimberlyton,North Dakota,38217,0.46
+dd9efb7e-c3dc-40e2-9c3b-ab0af996dde3,Nicole Chang,1163 Marshall Well Suite 236,Brownborough,Iowa,64029,0.81
+7f3ba84f-eabe-4d6f-aeaf-363ea1951402,Jeffrey Hansen,4937 Amanda Estate Suite 463,New Tina,Kansas,81664,0.5
+e3bddf47-8b07-4263-911d-d05beb578084,Curtis Meyer,63150 Shaw Bypass,Deannamouth,Massachusetts,94178,0.79
+b18bba41-5fce-44c9-8141-f11f9ba56f95,Benjamin Silva,84760 Hart Crescent,Dorothyfort,Utah,28805,0.94
+53c7d81e-ee95-4470-a89a-7dbc567f7c75,William Holt,818 Anthony Springs Apt. 064,South Michelleton,Iowa,90239,0.27
+8dc7e251-921f-431e-a29a-bdba9d165f3b,Franklin Ray,9662 Rose Square Suite 854,Nicholemouth,Alabama,33758,0.53
+e1414180-bcac-4439-8cff-55e66d85f997,Krystal Foster,0526 Thomas Bypass,South Tammyville,Georgia,06032,0.6
+44d6add9-d516-4a43-b2d0-959de7515808,Victoria Lyons,370 Garcia Station,Brendatown,Kentucky,24288,0.66
+7c27688b-a0ea-4f33-8ea8-de239bba71c3,Shawn Hudson,289 Jeffrey Park Suite 500,West Sandra,Connecticut,02336,0.58
+8159f9e5-1fd9-41c0-8631-b1f17b119aa1,Robin Brown,45554 William Crescent Suite 182,Douglasborough,Michigan,31812,0.12
+270f68ed-3416-4e0d-bbef-27b23e20c868,Timothy Cooper,01955 Walter Plaza,South Annaburgh,Florida,74645,0.54
+e0b752a4-0a1b-460f-81c1-273272661f59,Brian Carrillo,557 Allen Rapids,Youngmouth,California,99857,0.21
+691c69d9-d11c-4d77-bbc9-b38ab30a6219,Jeffrey Daniel,173 Kyle Brooks Apt. 870,West Theresaborough,Virginia,64594,0.61
+cbe46c80-9e8a-4178-9f49-c96f9422fc66,Jimmy Baxter,5090 Eaton Corner Suite 522,Erichaven,Missouri,28646,0.16
+4d2d28f2-aaca-4e76-899b-bceaf51d62f1,Juan Powell,372 Dawn Underpass Apt. 227,North Timothy,Louisiana,28531,0.62
+0d1f30d2-c752-4d14-906d-b78efd788bca,Brandi Johnson,579 Stephanie Ville Suite 223,Lake Markhaven,Washington,73485,0.57
+50262ff2-d301-4bff-8153-e40effc870e5,Julie Rocha,7610 Cooper Oval Apt. 396,Jessicamouth,Arkansas,61749,0.17
+fc4b7571-ffaa-468c-9cf1-444770cfcfeb,Jeffrey Liu,686 Long Key,Nicholasview,Ohio,13861,0.18
+edfc2a34-bc7c-467c-8314-7f07e9fa942c,Samantha Warner,90373 Leon Cliff,Hillview,Massachusetts,82583,0.51
+b6e448c8-a62a-4341-88ce-e01f44868864,Crystal Rich,33452 Miller Street,Garcialand,Washington,90744,0.28
+4804a206-fd4f-4cd9-b87f-7cd1bdb8eecd,Alyssa Wilson,08595 Denise Grove,New Tanya,Wyoming,69838,0.13
+65e39e16-f324-4159-9491-35dcec0d7b0c,Mrs. Michelle Lambert,068 George Hills Apt. 151,North Anthony,Delaware,85193,0.92
+73e86538-6682-4e8f-80b3-9d4878b1cf3a,Kevin Hays,398 Rosales Plaza,East Elizabeth,Arizona,13463,0.27
+81e50d61-fdb3-4ac1-b88e-887fa3ffca06,Eric Garcia,71604 Dana Track Apt. 840,West Michaelside,Colorado,01171,0.13
+361ea033-8e7e-463b-b063-4042f62c7276,Jaclyn Ramirez,86088 Kimberly Ports Apt. 099,South Brenda,Arkansas,37575,0.64
+94995331-953d-4711-aef4-bf4cf6da84de,Felicia Palmer,23963 Jackson Keys,Port Michellemouth,Illinois,59395,0.3
+a77beda6-561d-4803-a20f-50418797fe00,Destiny Williams,7567 Bennett Green,Murphyfurt,Michigan,08858,0.43
+acfd91bb-76f7-44de-8045-00b99d82c666,Dr. Benjamin Washington,65308 Michael Drives,Flemingtown,Idaho,43903,0.55
+f4520c50-a7a4-45d2-bc28-3eca0149942a,Angelica Henderson,470 Fields Loaf,Port Frederick,Tennessee,46924,0.22
