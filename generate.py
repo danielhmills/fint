@@ -7,8 +7,8 @@ fake = Faker()
 
 # Define the number of records for each CSV file
 num_files = 20
-num_accounts_per_file = 100  # accounts per file
-num_transactions_per_file = 1000  # transactions per file
+num_accounts_per_file = 1000  # accounts per file
+num_transactions_per_file = 10000  # transactions per file
 
 # Function to generate synthetic customer and account data
 def generate_customer_and_account_data(num_accounts):
@@ -39,10 +39,29 @@ def generate_customer_and_account_data(num_accounts):
     return (pd.DataFrame(customers, columns=['CustomerID', 'Name', 'StreetAddress', 'City', 'State', 'ZipCode', 'RiskScore']),
             pd.DataFrame(accounts, columns=['FintAccountNumber', 'Balance', 'AccountType', 'PrimaryAccountHolderID', 'SecondaryAccountHolderID']))
 
-# Function to generate synthetic transaction data
+# Function to generate synthetic transaction data with cycles
 def generate_transaction_data(num_transactions, account_numbers):
     transactions = []
-    for _ in range(num_transactions):
+    
+    # Generate cycles
+    num_cycles = int(num_transactions * 0.1)
+    for _ in range(num_cycles):
+        account1, account2, account3 = random.sample(account_numbers, 3)
+        transactions.append([
+            fake.uuid4(), fake.date_time_this_year(), round(random.uniform(10.0, 10000.0), 2),
+            account1, account2, 'Credit', 'Completed'
+        ])
+        transactions.append([
+            fake.uuid4(), fake.date_time_this_year(), round(random.uniform(10.0, 10000.0), 2),
+            account2, account3, 'Credit', 'Completed'
+        ])
+        transactions.append([
+            fake.uuid4(), fake.date_time_this_year(), round(random.uniform(10.0, 10000.0), 2),
+            account3, account1, 'Credit', 'Completed'
+        ])
+    
+    # Generate remaining random transactions
+    for _ in range(num_transactions - num_cycles * 3):
         transaction_id = fake.uuid4()
         timestamp = fake.date_time_this_year()
         amount = round(random.uniform(10.0, 10000.0), 2)
@@ -50,6 +69,7 @@ def generate_transaction_data(num_transactions, account_numbers):
         transaction_type = random.choice(['Credit', 'Debit'])
         status = random.choice(['Completed', 'Pending', 'Failed'])
         transactions.append([transaction_id, timestamp, amount, sender_account, receiver_account, transaction_type, status])
+    
     return pd.DataFrame(transactions, columns=['TransactionID', 'Timestamp', 'Amount', 'SenderAccount', 'ReceiverAccount', 'TransactionType', 'Status'])
 
 # Function to generate synthetic fraud label data
