@@ -1,156 +1,181 @@
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix fint: <http://demo.openlinksw.com/fint/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix fint: <http://www.openlinksw.com/ontology/fint#> .
 
-<http://demo.openlinksw.com/fint/>
+# Ontology Metadata
+<http://www.openlinksw.com/ontology/fint>
     a owl:Ontology ;
-    rdfs:label "Financial Transactions Ontology" ;
-    rdfs:comment "An ontology for modeling financial transactions, accounts, customers, and fraud detection." .
+    rdfs:comment "An ontology for financial transactions, accounts, customers, and related entities." ;
+    rdfs:label "Financial Transactions Ontology" .
 
-fint:Account
-    a owl:Class ;
+# Classes
+fint:Account a owl:Class ;
     rdfs:label "Account" ;
     rdfs:comment "Represents a financial account." .
 
-fint:Customer
-    a owl:Class ;
-    rdfs:label "Customer" ;
-    rdfs:comment "Represents a customer in the financial system." .
+fint:Balance a owl:Class ;
+    rdfs:label "Balance" ;
+    rdfs:comment "Represents the balance of an account." .
 
-fint:Transaction
-    a owl:Class ;
+fint:Customer a owl:Class ;
+    rdfs:label "Customer" ;
+    rdfs:comment "Represents a customer." .
+
+fint:Transaction a owl:Class ;
     rdfs:label "Transaction" ;
     rdfs:comment "Represents a financial transaction." .
 
-fint:FraudLabel
-    a owl:Class ;
+fint:TransactionValueAmount a owl:Class ;
+    rdfs:label "Transaction Value Amount" ;
+    rdfs:comment "Represents the value amount of a transaction." .
+
+fint:FraudLabel a owl:Class ;
     rdfs:label "Fraud Label" ;
-    rdfs:comment "Represents a label indicating whether a transaction is fraudulent." .
+    rdfs:comment "Represents a fraud label associated with a transaction." .
 
-fint:balance
-    a owl:DatatypeProperty ;
+# Object Properties
+fint:hasBalance a owl:ObjectProperty ;
+    rdfs:label "has balance" ;
+    rdfs:comment "Links an account to its balance." ;
     rdfs:domain fint:Account ;
-    rdfs:range xsd:decimal ;
-    rdfs:label "balance" ;
-    rdfs:comment "The balance of the account." .
+    rdfs:range fint:Balance .
 
-fint:accountType
-    a owl:DatatypeProperty ;
+fint:hasAccountType a owl:ObjectProperty ;
+    rdfs:label "has account type" ;
+    rdfs:comment "Links an account to its type." ;
     rdfs:domain fint:Account ;
-    rdfs:range xsd:string ;
-    rdfs:label "accountType" ;
-    rdfs:comment "The type of the account." .
+    rdfs:range rdfs:Literal .
 
-fint:linkedCustomer
-    a owl:ObjectProperty ;
+fint:hasPrimaryAccountHolder a owl:ObjectProperty ;
+    rdfs:label "has primary account holder" ;
+    rdfs:comment "Links an account to its primary account holder." ;
     rdfs:domain fint:Account ;
-    rdfs:range fint:Customer ;
-    rdfs:label "linkedCustomer" ;
-    rdfs:comment "The customer linked to the account." .
+    rdfs:range fint:Customer .
 
-fint:name
-    a owl:DatatypeProperty ;
+fint:hasSecondaryAccountHolder a owl:ObjectProperty ;
+    rdfs:label "has secondary account holder" ;
+    rdfs:comment "Links an account to its secondary account holder." ;
+    rdfs:domain fint:Account ;
+    rdfs:range fint:Customer .
+
+fint:isPrimaryAccountHolderOf a owl:ObjectProperty ;
+    rdfs:label "is primary account holder of" ;
+    rdfs:comment "Links a customer to the account for which they are the primary holder." ;
     rdfs:domain fint:Customer ;
-    rdfs:range xsd:string ;
+    rdfs:range fint:Account .
+
+fint:isSecondaryAccountHolderOf a owl:ObjectProperty ;
+    rdfs:label "is secondary account holder of" ;
+    rdfs:comment "Links a customer to the account for which they are the secondary holder." ;
+    rdfs:domain fint:Customer ;
+    rdfs:range fint:Account .
+
+fint:hasTransactionValue a owl:ObjectProperty ;
+    rdfs:label "has transaction value" ;
+    rdfs:comment "Links a transaction to its value amount." ;
+    rdfs:domain fint:Transaction ;
+    rdfs:range fint:TransactionValueAmount .
+
+fint:hasSenderAccount a owl:ObjectProperty ;
+    rdfs:label "has sender account" ;
+    rdfs:comment "Links a transaction to its sender account." ;
+    rdfs:domain fint:Transaction ;
+    rdfs:range fint:Account .
+
+fint:hasReceiverAccount a owl:ObjectProperty ;
+    rdfs:label "has receiver account" ;
+    rdfs:comment "Links a transaction to its receiver account." ;
+    rdfs:domain fint:Transaction ;
+    rdfs:range fint:Account .
+
+fint:relatedTransaction a owl:ObjectProperty ;
+    rdfs:label "related transaction" ;
+    rdfs:comment "Links a fraud label to the related transaction." ;
+    rdfs:domain fint:FraudLabel ;
+    rdfs:range fint:Transaction .
+
+# Datatype Properties
+fint:hasBalanceAmount a owl:DatatypeProperty ;
+    rdfs:label "has balance amount" ;
+    rdfs:comment "Represents the amount of the balance." ;
+    rdfs:domain fint:Balance ;
+    rdfs:range xsd:decimal .
+
+fint:hasCurrecny a owl:DatatypeProperty ;
+    rdfs:label "has currency" ;
+    rdfs:comment "Represents the currency of the balance or transaction amount." ;
+    rdfs:domain [ a owl:Class ; owl:unionOf (fint:Balance fint:TransactionValueAmount) ] ;
+    rdfs:range xsd:string .
+
+fint:name a owl:DatatypeProperty ;
     rdfs:label "name" ;
-    rdfs:comment "The name of the customer." .
-
-fint:streetAddress
-    a owl:DatatypeProperty ;
+    rdfs:comment "Represents the name of a customer." ;
     rdfs:domain fint:Customer ;
-    rdfs:range xsd:string ;
-    rdfs:label "streetAddress" ;
-    rdfs:comment "The street address of the customer." .
+    rdfs:range xsd:string .
 
-fint:city
-    a owl:DatatypeProperty ;
+fint:hasStreetAddress a owl:DatatypeProperty ;
+    rdfs:label "has street address" ;
+    rdfs:comment "Represents the street address of a customer." ;
     rdfs:domain fint:Customer ;
-    rdfs:range xsd:string ;
-    rdfs:label "city" ;
-    rdfs:comment "The city of the customer." .
+    rdfs:range xsd:string .
 
-fint:state
-    a owl:DatatypeProperty ;
+fint:hasCity a owl:DatatypeProperty ;
+    rdfs:label "has city" ;
+    rdfs:comment "Represents the city of a customer." ;
     rdfs:domain fint:Customer ;
-    rdfs:range xsd:string ;
-    rdfs:label "state" ;
-    rdfs:comment "The state of the customer." .
+    rdfs:range xsd:string .
 
-fint:zipCode
-    a owl:DatatypeProperty ;
+fint:hasState a owl:DatatypeProperty ;
+    rdfs:label "has state" ;
+    rdfs:comment "Represents the state of a customer." ;
     rdfs:domain fint:Customer ;
-    rdfs:range xsd:string ;
-    rdfs:label "zipCode" ;
-    rdfs:comment "The zip code of the customer." .
+    rdfs:range xsd:string .
 
-fint:account
-    a owl:ObjectProperty ;
+fint:hasZipCode a owl:DatatypeProperty ;
+    rdfs:label "has zip code" ;
+    rdfs:comment "Represents the zip code of a customer." ;
     rdfs:domain fint:Customer ;
-    rdfs:range fint:Account ;
-    rdfs:label "account" ;
-    rdfs:comment "The account associated with the customer." .
+    rdfs:range xsd:string .
 
-fint:riskScore
-    a owl:DatatypeProperty ;
+fint:hasRiskScore a owl:DatatypeProperty ;
+    rdfs:label "has risk score" ;
+    rdfs:comment "Represents the risk score of a customer." ;
     rdfs:domain fint:Customer ;
-    rdfs:range xsd:decimal ;
-    rdfs:label "riskScore" ;
-    rdfs:comment "The risk score of the customer." .
+    rdfs:range xsd:decimal .
 
-fint:timestamp
-    a owl:DatatypeProperty ;
+fint:hasTransactionTimestamp a owl:DatatypeProperty ;
+    rdfs:label "has transaction timestamp" ;
+    rdfs:comment "Represents the timestamp of a transaction." ;
     rdfs:domain fint:Transaction ;
-    rdfs:range xsd:dateTime ;
-    rdfs:label "timestamp" ;
-    rdfs:comment "The timestamp of the transaction." .
+    rdfs:range xsd:dateTime .
 
-fint:amount
-    a owl:DatatypeProperty ;
+fint:hasTransactionValueAmount a owl:DatatypeProperty ;
+    rdfs:label "has transaction value amount" ;
+    rdfs:comment "Represents the value amount of a transaction." ;
+    rdfs:domain fint:TransactionValueAmount ;
+    rdfs:range xsd:decimal .
+
+fint:hasTransactionType a owl:DatatypeProperty ;
+    rdfs:label "has transaction type" ;
+    rdfs:comment "Represents the type of a transaction." ;
     rdfs:domain fint:Transaction ;
-    rdfs:range xsd:decimal ;
-    rdfs:label "amount" ;
-    rdfs:comment "The amount of the transaction." .
+    rdfs:range xsd:string .
 
-fint:senderAccount
-    a owl:ObjectProperty ;
+fint:hasTransactionStatus a owl:DatatypeProperty ;
+    rdfs:label "has transaction status" ;
+    rdfs:comment "Represents the status of a transaction." ;
     rdfs:domain fint:Transaction ;
-    rdfs:range fint:Account ;
-    rdfs:label "senderAccount" ;
-    rdfs:comment "The sender account of the transaction." .
+    rdfs:range xsd:string .
 
-fint:receiverAccount
-    a owl:ObjectProperty ;
-    rdfs:domain fint:Transaction ;
-    rdfs:range fint:Account ;
-    rdfs:label "receiverAccount" ;
-    rdfs:comment "The receiver account of the transaction." .
-
-fint:transactionType
-    a owl:DatatypeProperty ;
-    rdfs:domain fint:Transaction ;
-    rdfs:range xsd:string ;
-    rdfs:label "transactionType" ;
-    rdfs:comment "The type of the transaction." .
-
-fint:status
-    a owl:DatatypeProperty ;
-    rdfs:domain fint:Transaction ;
-    rdfs:range xsd:string ;
-    rdfs:label "status" ;
-    rdfs:comment "The status of the transaction." .
-
-fint:isFraud
-    a owl:DatatypeProperty ;
+fint:isFraud a owl:DatatypeProperty ;
+    rdfs:label "is fraud" ;
+    rdfs:comment "Indicates if the transaction is fraudulent." ;
     rdfs:domain fint:FraudLabel ;
-    rdfs:range xsd:boolean ;
-    rdfs:label "isFraud" ;
-    rdfs:comment "Indicates whether the transaction is fraudulent." .
+    rdfs:range xsd:boolean .
 
-fint:relatedTransaction
-    a owl:ObjectProperty ;
-    rdfs:domain fint:FraudLabel ;
-    rdfs:range fint:Transaction ;
-    rdfs:label "relatedTransaction" ;
-    rdfs:comment "The transaction related to the fraud label." .
+# Labels
+rdfs:label a owl:AnnotationProperty ;
+    rdfs:label "label" ;
+    rdfs:comment "Provides a human-readable version of a resource's name." .
