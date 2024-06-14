@@ -35,6 +35,18 @@ fint:FraudLabel a owl:Class ;
     rdfs:label "Fraud Label" ;
     rdfs:comment "Represents a fraud label associated with a transaction." .
 
+fint:City a owl:Class ;
+    rdfs:label "City" ;
+    rdfs:comment "Represents a city location." .
+
+fint:State a owl:Class ;
+    rdfs:label "State" ;
+    rdfs:comment "Represents a state location." .
+
+fint:ZipCode a owl:Class ;
+    rdfs:label "Zip Code" ;
+    rdfs:comment "Represents a zip code location." .
+
 # Object Properties
 fint:hasBalance a owl:ObjectProperty ;
     rdfs:label "has balance" ;
@@ -95,6 +107,18 @@ fint:relatedTransaction a owl:ObjectProperty ;
     rdfs:comment "Links a fraud label to the related transaction." ;
     rdfs:domain fint:FraudLabel ;
     rdfs:range fint:Transaction .
+
+fint:inState a owl:ObjectProperty ;
+    rdfs:label "in state" ;
+    rdfs:comment "Links a city to its state." ;
+    rdfs:domain fint:City ;
+    rdfs:range fint:State .
+
+fint:inCity a owl:ObjectProperty ;
+    rdfs:label "in city" ;
+    rdfs:comment "Links a zip code to its city." ;
+    rdfs:domain fint:ZipCode ;
+    rdfs:range fint:City .
 
 # Datatype Properties
 fint:hasBalanceAmount a owl:DatatypeProperty ;
@@ -174,8 +198,3 @@ fint:isFraud a owl:DatatypeProperty ;
     rdfs:comment "Indicates if the transaction is fraudulent." ;
     rdfs:domain fint:FraudLabel ;
     rdfs:range xsd:boolean .
-
-# Labels
-rdfs:label a owl:AnnotationProperty ;
-    rdfs:label "label" ;
-    rdfs:comment "Provides a human-readable version of a resource's name." .
