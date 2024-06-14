@@ -77,7 +77,7 @@ def generate_fraud_label_data(num_transactions):
     fraud_labels = []
     for _ in range(num_transactions):
         transaction_id = fake.uuid4()
-        is_fraud = random.choice([True, False])
+        is_fraud = random.choice(['true', 'false'])
         fraud_labels.append([transaction_id, is_fraud])
     return pd.DataFrame(fraud_labels, columns=['TransactionID', 'IsFraud'])
 
